@@ -1,5 +1,5 @@
-body{
-  background-color: lightblue
+body {
+  background-color: lightblue;
 }
 
 .container {
@@ -7,7 +7,51 @@ body{
   align-items: center;
   justify-content: space-evenly;
 }
-header {
+
+#title {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+#reset {
+  display: flex;
+  align-items: first baseline;
+  justify-content: space-evenly;
+}
+
+#left-section {
+  display: block;
+  align-items: center;
+}
+.num, .but {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  height: 45px;
+  width: 90px;
+  color: black;
+  text-decoration: double;
+  background-color: aliceblue;
+}
+input {
+  background-color: black;
+  border: 2px solid white;
+  height: 70px;
+  width: 140px;
+  color: white;
+}
+button:hover {
+  scale: 1.2;
+}
+.limit {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  height: 10px;
+  width: 100 percent;
+  background-color: crimson;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

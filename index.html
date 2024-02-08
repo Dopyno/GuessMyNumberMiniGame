@@ -8,17 +8,26 @@
     <title>Guess my number!</title>
   </head>
   <body>
-    <header id="header">
-      <h1>Guess My Number!</h1>
-      <p>(Between 1 and 20)</p>
-      <button type="reset">Again!</button>
-      <div></div>
+    <header>
+      <div id="reset">
+        <button>Again!</button>
+        <p>(Between 1 and 20)</p>
+      </div>
+      <div id="title">
+        <h1>Guess My Number!</h1>
+      </div>
     </header>
+    <div class="limit"></div>
     <div class="container">
       <div>
         <section id="left-section">
-          <input type="number" name="user input" id="user-input" /><br />
-          <button id="check-button">Check!</button>
+          <input
+            class="num"
+            type="number"
+            name="user input"
+            id="user-input"
+          /><br />
+          <button class="but" id="check-button">Check!</button>
         </section>
       </div>
       <div>
