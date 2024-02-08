@@ -1,0 +1,2 @@
+# GuessMyNumberMiniGame
+Game with JavaScript 
