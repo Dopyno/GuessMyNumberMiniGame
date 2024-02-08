@@ -1,2 +1,2 @@
 # GuessMyNumberMiniGame
-Game with JavaScript 
+Game develop with JavaScript, HTML and CSS 
