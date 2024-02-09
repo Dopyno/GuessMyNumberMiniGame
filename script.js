@@ -17,5 +17,20 @@ document.querySelector('#check-button').addEventListener('click', function () {
   let randomElement = Number.parseInt(Math.random() * 21);
   let temp = document.getElementById('user-input').value;
   if (typeof temp !== 'number') {
+    document.querySelector(
+      '#error-message'
+    ).textContent = `*****Sorry, please use numbers only!!!*****`;
+  } else if (temp <= 1 || temp >= 20) {
+    document.querySelector(
+      '#error-message'
+    ).textContent = `***Sorry, your number is not in range between 1 - 20, please try again!***`;
+  } else if (temp == randomElement) {
+    document.querySelector(
+      '#error-message'
+    ).textContent = `*****Winner!!!*****`;
+  } else {
+    document.querySelector(
+      '#error-message'
+    ).textContent = `*****Sorry not this number, please try again!*****`;
   }
 });

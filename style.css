@@ -23,7 +23,8 @@ body {
   display: block;
   align-items: center;
 }
-.num, .but {
+.num,
+.but {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,4 +55,10 @@ button:hover {
   background-color: crimson;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+#error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:tomato;
 }
