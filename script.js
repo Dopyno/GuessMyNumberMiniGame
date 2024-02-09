@@ -15,8 +15,9 @@
 
 document.querySelector('#check-button').addEventListener('click', function () {
   let randomElement = Number.parseInt(Math.random() * 21);
-  let temp = document.getElementById('user-input').value;
-  if (typeof temp !== 'number') {
+  let temp = document.querySelector('#user-input').value;
+  temp = Number(temp);
+  if (typeof temp != 'number') {
     document.querySelector(
       '#error-message'
     ).textContent = `*****Sorry, please use numbers only!!!*****`;
@@ -27,10 +28,14 @@ document.querySelector('#check-button').addEventListener('click', function () {
   } else if (temp == randomElement) {
     document.querySelector(
       '#error-message'
-    ).textContent = `*****Winner!!!*****`;
+    ).textContent = `*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
+  } else if (temp > randomElement) {
+    document.querySelector(
+      '#error-message'
+    ).textContent = `*****Sorry this number is to big, please try again!*****`;
   } else {
     document.querySelector(
       '#error-message'
-    ).textContent = `*****Sorry not this number, please try again!*****`;
+    ).textContent = `*****Sorry this number is to small, please try again!*****`;
   }
 });
