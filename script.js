@@ -15,8 +15,8 @@
 
 document.querySelector('#check-button').addEventListener('click', function () {
   let randomElement = Number.parseInt(Math.random() * 21);
-  let temp = document.querySelector('#user-input').value;
-  temp = Number(temp);
+  let temp = Number(document.querySelector('#user-input').value);
+  //temp = Number(temp);
   if (typeof temp != 'number') {
     document.querySelector(
       '#error-message'
@@ -27,8 +27,8 @@ document.querySelector('#check-button').addEventListener('click', function () {
     ).textContent = `***Sorry, your number is not in range between 1 - 20, please try again!***`;
   } else if (temp == randomElement) {
     document.querySelector(
-      '#error-message'
-    ).textContent = `*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
+      '#winner'
+    ).textContent = `🎉 Correct Number! \n*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
   } else if (temp > randomElement) {
     document.querySelector(
       '#error-message'
@@ -38,4 +38,5 @@ document.querySelector('#check-button').addEventListener('click', function () {
       '#error-message'
     ).textContent = `*****Sorry this number is to small, please try again!*****`;
   }
+  //console.log(temp);
 });
