@@ -13,22 +13,21 @@
 //*   document.getElementById('#idElement').value = 10;
 //*   document.getElementById('idElement').innerHTML;
 
+//let randomElement = Number.parseInt(Math.random() * 21);
+let randomElement = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('#number1').innerHTML = randomElement;
+
 document.querySelector('#check-button').addEventListener('click', function () {
-  let randomElement = Number.parseInt(Math.random() * 21);
   let temp = Number(document.querySelector('#user-input').value);
   //temp = Number(temp);
-  if (typeof temp != 'number') {
-    document.querySelector(
-      '#error-message'
-    ).textContent = `*****Sorry, please use numbers only!!!*****`;
-  } else if (temp <= 1 || temp >= 20) {
+  if (temp <= 1 || temp >= 20) {
     document.querySelector(
       '#error-message'
     ).textContent = `***Sorry, your number is not in range between 1 - 20, please try again!***`;
   } else if (temp == randomElement) {
     document.querySelector(
       '#winner'
-    ).textContent = `🎉 Correct Number! \n*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
+    ).textContent = `*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
   } else if (temp > randomElement) {
     document.querySelector(
       '#error-message'
