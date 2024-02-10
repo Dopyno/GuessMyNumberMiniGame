@@ -15,27 +15,36 @@
 
 //let randomElement = Number.parseInt(Math.random() * 21);
 let randomElement = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('#number1').innerHTML = randomElement;
+let credit = 20;
+let a = 0;
+document.querySelector('#number1').textContent = randomElement;
 
-document.querySelector('#check-button').addEventListener('click', function () {
+document.querySelector('#check-btn').addEventListener('click', function () {
+  document.querySelector('#credit').textContent = `💯 Credit:` + credit;
   let temp = Number(document.querySelector('#user-input').value);
-  //temp = Number(temp);
-  if (temp <= 1 || temp >= 20) {
-    document.querySelector(
-      '#error-message'
-    ).textContent = `***Sorry, your number is not in range between 1 - 20, please try again!***`;
+
+  if (credit == 0) {
+    console.log('Game over!!!');
+  } else if (temp < 1 || temp > 20) {
+    credit--;
+    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
+    document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
   } else if (temp == randomElement) {
-    document.querySelector(
-      '#winner'
-    ).textContent = `*🏆🏆🎖🥇*Winner!!!*💎🥇🏆*`;
+    credit++;
+    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
+    document.querySelector('#winner').textContent = `🥇*Winner!!!*🏆`;
+
+    a += randomElement;
+    document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
+
+    document.querySelector('#number1').textContent = randomElement;
   } else if (temp > randomElement) {
-    document.querySelector(
-      '#error-message'
-    ).textContent = `*****Sorry this number is to big, please try again!*****`;
+    credit--;
+    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
+    document.querySelector('#winner').textContent = `To big! 📈`;
   } else {
-    document.querySelector(
-      '#error-message'
-    ).textContent = `*****Sorry this number is to small, please try again!*****`;
+    credit--;
+    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
+    document.querySelector('#winner').textContent = `To small! 📉`;
   }
-  //console.log(temp);
 });
