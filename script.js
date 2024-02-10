@@ -29,8 +29,9 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit:` + credit;
     document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
+    //clearText();
   } else if (temp == randomElement) {
-    credit++;
+    credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `🥇*Winner!!!*🏆`;
 
@@ -38,13 +39,20 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
 
     document.querySelector('#number1').textContent = randomElement;
+    //clearText();
   } else if (temp > randomElement) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `To big! 📈`;
+    //clearText();
   } else {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `To small! 📉`;
+    clearText();
   }
 });
+
+// function clearText() {
+//   document.getElementById('#left-section').reset();
+// }
