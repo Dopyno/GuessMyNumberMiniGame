@@ -17,7 +17,8 @@
 let randomElement = Math.trunc(Math.random() * 20) + 1;
 let credit = 20;
 let a = 0;
-document.querySelector('#number1').textContent = randomElement;
+//document.querySelector('#number1').textContent = randomElement;
+//document.querySelector('#number1').textContent = '?';
 
 document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#credit').textContent = `💯 Credit:` + credit;
@@ -25,34 +26,29 @@ document.querySelector('#check-btn').addEventListener('click', function () {
 
   if (credit == 0) {
     console.log('Game over!!!');
-  } else if (temp < 1 || temp > 20) {
+  } else if (temp < 1 || temp > 20 || !temp) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit:` + credit;
     document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
-    //clearText();
   } else if (temp == randomElement) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `🥇*Winner!!!*🏆`;
-
     a += randomElement;
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
-
     document.querySelector('#number1').textContent = randomElement;
-    //clearText();
   } else if (temp > randomElement) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `To big! 📈`;
-    //clearText();
   } else {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `To small! 📉`;
-    clearText();
   }
 });
 
 // function clearText() {
 //   document.getElementById('#left-section').reset();
 // }
+
