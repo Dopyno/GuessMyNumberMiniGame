@@ -43,6 +43,7 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     a += secretNumber;
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
     document.querySelector('#number1').textContent = secretNumber;
+    changeColor(yellow);
   } else if (temp > secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
@@ -53,3 +54,6 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     document.querySelector('#winner').textContent = `To small! 📉`;
   }
 });
+function changeColor(data) {
+  document.body.style.backgroundColor = 'data';
+}
