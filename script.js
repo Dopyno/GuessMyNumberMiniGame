@@ -14,7 +14,7 @@
 //*   document.getElementById('idElement').innerHTML;
 
 //let randomElement = Number.parseInt(Math.random() * 21);
-let randomElement = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let credit = 20;
 let a = 0;
 //document.querySelector('#number1').textContent = randomElement;
@@ -26,18 +26,24 @@ document.querySelector('#check-btn').addEventListener('click', function () {
 
   if (credit == 0) {
     console.log('Game over!!!');
-  } else if (temp < 1 || temp > 20 || !temp) {
+    //window.open('gameOver.html');
+    window.location = 'gameOver.html';
+  } else if (temp < 1 || temp > 20) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit:` + credit;
     document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
-  } else if (temp == randomElement) {
+  } else if (!temp) {
+    credit--;
+    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
+    document.querySelector('#winner').textContent = `⛔No number!`;
+  } else if (temp == secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `🥇*Winner!!!*🏆`;
-    a += randomElement;
+    a += secretNumber;
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
-    document.querySelector('#number1').textContent = randomElement;
-  } else if (temp > randomElement) {
+    document.querySelector('#number1').textContent = secretNumber;
+  } else if (temp > secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
     document.querySelector('#winner').textContent = `To big! 📈`;
@@ -47,8 +53,3 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     document.querySelector('#winner').textContent = `To small! 📉`;
   }
 });
-
-// function clearText() {
-//   document.getElementById('#left-section').reset();
-// }
-
