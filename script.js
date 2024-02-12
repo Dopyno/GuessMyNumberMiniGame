@@ -23,6 +23,7 @@ let a = 0;
 document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#credit').textContent = `💯 Credit:` + credit;
   let temp = Number(document.querySelector('#user-input').value);
+  document.querySelector('#number1').textContent = '?';
 
   if (credit == 0) {
     console.log('Game over!!!');
@@ -45,7 +46,8 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     a += secretNumber;
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
     document.querySelector('#number1').textContent = secretNumber;
-    changeColor(yellow);
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    changeColor();
   } else if (temp > secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
@@ -56,6 +58,6 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     document.querySelector('#winner').textContent = `To small! 📉`;
   }
 });
-function changeColor(data) {
-  document.body.style.backgroundColor = 'data';
+function changeColor() {
+  document.getElementById('#central').style.backgroundColor = 'red';
 }
