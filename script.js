@@ -13,13 +13,16 @@
 //*   document.getElementById('#idElement').value = 10;
 //*   document.getElementById('idElement').innerHTML;
 
+//!               Challenge Mini Game
+
+//document.querySelector('#number1').textContent = randomElement;
+//document.querySelector('#number1').textContent = '?';
 //let randomElement = Number.parseInt(Math.random() * 21);
 let secretNumber = generateRandomNumber();
 let credit = 20;
 let a = 0;
-//document.querySelector('#number1').textContent = randomElement;
-//document.querySelector('#number1').textContent = '?';
 
+//?     Check BTN
 document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#credit').textContent = `💯 Credit:` + credit;
   let temp = Number(document.querySelector('#user-input').value);
@@ -49,6 +52,11 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     credit--;
     updateCreditAndInfo(credit, `To small! 📉`);
   }
+});
+
+//?    reset BTN
+document.querySelector('#reset-btn').addEventListener('click', function () {
+  window.location = 'index.html';
 });
 
 //Functions
