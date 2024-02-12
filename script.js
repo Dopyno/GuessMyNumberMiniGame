@@ -47,7 +47,8 @@ document.querySelector('#check-btn').addEventListener('click', function () {
     document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
     document.querySelector('#number1').textContent = secretNumber;
     secretNumber = Math.trunc(Math.random() * 20) + 1;
-    changeColor();
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('#number1').style.width = '170px';
   } else if (temp > secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
@@ -59,5 +60,5 @@ document.querySelector('#check-btn').addEventListener('click', function () {
   }
 });
 function changeColor() {
-  document.getElementById('#central').style.backgroundColor = 'red';
+  document.querySelector('body').style.backgroundColor = '#60b347';
 }
