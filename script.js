@@ -27,15 +27,17 @@ document.querySelector('#check-btn').addEventListener('click', function () {
   if (credit == 0) {
     console.log('Game over!!!');
     //window.open('gameOver.html');
+    document.querySelector('#winner').textContent = `Game Over!`;
+
     window.location = 'gameOver.html';
-  } else if (temp < 1 || temp > 20) {
-    credit--;
-    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
-    document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
   } else if (!temp) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit:` + credit;
     document.querySelector('#winner').textContent = `⛔No number!`;
+  } else if (temp < 1 || temp > 20) {
+    credit--;
+    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
+    document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
   } else if (temp == secretNumber) {
     credit--;
     document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
