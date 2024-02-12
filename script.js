@@ -14,7 +14,7 @@
 //*   document.getElementById('idElement').innerHTML;
 
 //let randomElement = Number.parseInt(Math.random() * 21);
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = generateRandomNumber();
 let credit = 20;
 let a = 0;
 //document.querySelector('#number1').textContent = randomElement;
@@ -26,39 +26,45 @@ document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#number1').textContent = '?';
 
   if (credit == 0) {
-    console.log('Game over!!!');
-    //window.open('gameOver.html');
+    credit--;
     document.querySelector('#winner').textContent = `Game Over!`;
-
     window.location = 'gameOver.html';
   } else if (!temp) {
     credit--;
-    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
-    document.querySelector('#winner').textContent = `⛔No number!`;
+    updateCreditAndInfo(credit, `⛔No number!`);
   } else if (temp < 1 || temp > 20) {
     credit--;
-    document.querySelector('#credit').textContent = `💯 Credit:` + credit;
-    document.querySelector('#winner').textContent = `⛔Not in range!⛔`;
+    updateCreditAndInfo(credit, `⛔Not in range!⛔`);
   } else if (temp == secretNumber) {
     credit--;
-    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
-    document.querySelector('#winner').textContent = `🥇*Winner!!!*🏆`;
+    updateCreditAndInfo(credit, `🥇*Winner!!!*🏆`);
     a += secretNumber;
-    document.querySelector('#highscore').textContent = '🥇 Highscore: ' + a;
-    document.querySelector('#number1').textContent = secretNumber;
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('#number1').style.width = '170px';
+    winnerUpdate(a, secretNumber);
+    secretNumber = generateRandomNumber();
+    changeColor();
   } else if (temp > secretNumber) {
     credit--;
-    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
-    document.querySelector('#winner').textContent = `To big! 📈`;
+    updateCreditAndInfo(credit, `To big! 📈`);
   } else {
     credit--;
-    document.querySelector('#credit').textContent = `💯 Credit: ` + credit;
-    document.querySelector('#winner').textContent = `To small! 📉`;
+    updateCreditAndInfo(credit, `To small! 📉`);
   }
 });
+
+//Functions
 function changeColor() {
-  document.querySelector('body').style.backgroundColor = '#60b347';
+  document.querySelector('body').style.backgroundColor = '#DFFF00';
+  document.querySelector('#number1').style.width = '170px';
+}
+function generateRandomNumber() {
+  let randomNumber = Math.trunc(Math.random() * 20) + 1;
+  return randomNumber;
+}
+function updateCreditAndInfo(data, message) {
+  document.querySelector('#credit').textContent = `💯 Credit:` + data;
+  document.querySelector('#winner').textContent = message;
+}
+function winnerUpdate(data, data2) {
+  document.querySelector('#highscore').textContent = '🥇 Highscore: ' + data;
+  document.querySelector('#number1').textContent = data2;
 }
