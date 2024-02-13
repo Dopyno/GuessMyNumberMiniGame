@@ -26,7 +26,7 @@ let a = 0;
 document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#credit').textContent = `💯 Credit:` + credit;
   let temp = Number(document.querySelector('#user-input').value);
-  document.querySelector('#number1').textContent = '?';
+  //document.querySelector('#number1').textContent = '?';
 
   if (credit == 0) {
     credit--;
@@ -56,10 +56,22 @@ document.querySelector('#check-btn').addEventListener('click', function () {
 
 //?    reset BTN
 document.querySelector('#reset-btn').addEventListener('click', function () {
-  window.location = 'index.html';
+  //? window.location = 'index.html';
+  credit = 20;
+  secretNumber = generateRandomNumber();
+  resetFields();
 });
 
 //Functions
+
+function resetFields() {
+  document.querySelector('#winner').textContent = 'Start playing...🏁';
+  document.querySelector('#credit').textContent = '💯 Credit: 20';
+  document.querySelector('#highscore').textContent = '🥇 Highscore: 0';
+  document.querySelector('#number1').textContent = '?';
+  document.querySelector('#user-input').value = '';
+  document.querySelector('body').style.backgroundColor = 'lightblue';
+}
 function changeColor() {
   document.querySelector('body').style.backgroundColor = '#DFFF00';
   document.querySelector('#number1').style.width = '170px';

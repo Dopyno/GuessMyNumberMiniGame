@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: #00bfff;
   font-family: 'Press Start 2P', system-ui;
   font-size: 20px;
 }
@@ -68,6 +68,10 @@ input {
 button:hover {
   scale: 1.1;
   background-color: lime;
+}
+#number1:hover {
+  scale: 1.2;
+  background-color: #0000ff;
 }
 .limit {
   display: flex;
