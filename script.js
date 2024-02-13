@@ -18,20 +18,22 @@
 //document.querySelector('#number1').textContent = randomElement;
 //document.querySelector('#number1').textContent = '?';
 //let randomElement = Number.parseInt(Math.random() * 21);
+
 let secretNumber = generateRandomNumber();
 let credit = 20;
-let a = 0;
+let highScore = 0;
 
 //?     Check BTN
+
 document.querySelector('#check-btn').addEventListener('click', function () {
   document.querySelector('#credit').textContent = `💯 Credit:` + credit;
   let temp = Number(document.querySelector('#user-input').value);
-  //document.querySelector('#number1').textContent = '?';
 
   if (credit == 0) {
-    credit--;
+    //credit--;
     document.querySelector('#winner').textContent = `Game Over!`;
     window.location = 'gameOver.html';
+    //gameOverFunction();
   } else if (!temp) {
     credit--;
     updateCreditAndInfo(credit, `⛔No number!`);
@@ -41,8 +43,8 @@ document.querySelector('#check-btn').addEventListener('click', function () {
   } else if (temp == secretNumber) {
     credit--;
     updateCreditAndInfo(credit, `🥇*Winner!!!*🏆`);
-    a += secretNumber;
-    winnerUpdate(a, secretNumber);
+    highScore += secretNumber;
+    winnerUpdate(highScore, secretNumber);
     secretNumber = generateRandomNumber();
     changeColor();
   } else if (temp > secretNumber) {
@@ -55,6 +57,7 @@ document.querySelector('#check-btn').addEventListener('click', function () {
 });
 
 //?    reset BTN
+
 document.querySelector('#reset-btn').addEventListener('click', function () {
   //? window.location = 'index.html';
   credit = 20;
@@ -65,12 +68,12 @@ document.querySelector('#reset-btn').addEventListener('click', function () {
 //Functions
 
 function resetFields() {
-  document.querySelector('#winner').textContent = 'Start playing...🏁';
+  document.querySelector('#winner').textContent = '🏁Start playing!';
   document.querySelector('#credit').textContent = '💯 Credit: 20';
   document.querySelector('#highscore').textContent = '🥇 Highscore: 0';
   document.querySelector('#number1').textContent = '?';
   document.querySelector('#user-input').value = '';
-  document.querySelector('body').style.backgroundColor = 'lightblue';
+  document.querySelector('body').style.backgroundColor = '#00bfff';
 }
 function changeColor() {
   document.querySelector('body').style.backgroundColor = '#DFFF00';
@@ -83,8 +86,18 @@ function generateRandomNumber() {
 function updateCreditAndInfo(data, message) {
   document.querySelector('#credit').textContent = `💯 Credit:` + data;
   document.querySelector('#winner').textContent = message;
+  document.querySelector('body').style.backgroundColor = '#00bfff';
+  document.querySelector('#number1').textContent = '?';
 }
 function winnerUpdate(data, data2) {
   document.querySelector('#highscore').textContent = '🥇 Highscore: ' + data;
   document.querySelector('#number1').textContent = data2;
 }
+
+// const gameOverFunction = function{
+//     document.querySelector('#winner').textContent = `Game Over!`;
+//     window.location = 'gameOver.html';
+// }
+// function displayUpdate(data, message){
+//   document.querySelector(data).textContent = message;
+// }
